@@ -1,0 +1,49 @@
+.pos 0x0
+irmovq list, %rsi
+irmovq list, %rax
+irmovq list, %rcx
+irmovq list, %rbx
+mrmovq 8(%rsi), %rdx
+nop
+nop
+nop
+subq %rdx, %rcx
+cmovg %rbx, %rax
+cmovl %rdx, %rax
+
+mrmovq 8(%rsi), %rcx
+mrmovq 8(%rsi), %rbx
+mrmovq 16(%rsi), %rdx
+nop
+nop
+nop
+subq %rdx, %rcx
+cmovg %rbx, %rax
+cmovl %rdx, %rax
+
+mrmovq 16(%rsi), %rcx
+mrmovq 16(%rsi), %rbx
+mrmovq 24(%rsi), %rdx
+nop
+nop
+nop
+subq %rdx, %rcx
+cmovg %rbx, %rax
+cmovl %rdx, %rax
+
+mrmovq 24(%rsi), %rcx
+mrmovq 24(%rsi), %rbx
+mrmovq 32(%rsi), %rdx
+nop
+nop
+nop
+subq %rdx, %rcx
+cmovg %rbx, %rax
+cmovl %rdx, %rax
+
+.align 8
+list: .quad 5
+      .quad -6
+      .quad -5
+      .quad 1
+      .quad 10

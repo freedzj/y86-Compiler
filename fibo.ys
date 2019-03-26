@@ -1,0 +1,31 @@
+.pos 0x0
+
+irmovq $0, %rax
+irmovq $1, %rcx
+addq %rax, %rdx
+addq %rcx, %rdx
+addq %rcx, %rbx
+addq %rdx, %rbx
+addq %rdx, %rsp
+addq %rbx, %rsp
+addq %rbx, %rbp
+addq %rsp, %rbp
+addq %rsp, %rsi
+addq %rbp, %rsi
+addq %rbp, %rdi
+addq %rsi, %rdi
+addq %rsi, %r8
+addq %rdi, %r8
+addq %rdi, %r9
+addq %r8, %r9
+addq %r8, %r10
+addq %r9, %r10
+addq %r9, %r11
+addq %r10, %r11
+addq %r10, %r12
+addq %r11, %r12
+addq %r11, %r13
+addq %r12, %r13
+addq %r12, %r14
+addq %r13, %r14
+halt

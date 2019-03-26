@@ -1,0 +1,37 @@
+0x000:                      |         .pos 0
+0x000: 30f40002000000000000 |         irmovq stack, %rsp
+0x00a: 30f76000000000000000 |         irmovq list, %rdi
+0x014: 50070000000000000000 |         mrmovq (%rdi), %rax
+0x01e: 30f80800000000000000 |         irmovq $8, %r8
+0x028: 6087                 |         addq %r8, %rdi
+0x02a: 803400000000000000   |         call minList
+0x033: 00                   |         halt
+                            | 
+                            | # minList: return the minimum value of the elements of a NULL terminated list
+                            | # parameter: %rdi contains the value list, which
+                            | #            is the adress of the first element in the list
+                            | # return: %rax contains the minimum value in the list
+0x034:                      | minList:
+0x034: 50270000000000000000 |         mrmovq (%rdi), %rdx
+0x03e: 6222                 |         andq %rdx, %rdx
+0x040: 735a00000000000000   |         je done
+0x049: 2029                 |         rrmovq %rdx, %r9
+0x04b: 6109                 |         subq %rax, %r9
+0x04d: 2220                 |         cmovl %rdx, %rax
+0x04f: 6087                 |         addq %r8, %rdi
+0x051: 703400000000000000   |         jmp minList
+                            | 
+0x05a: 90                   | done:   ret  
+                            |          
+0x060:                      |         .align 8
+0x060: 1600000000000000     | list:   .quad 22
+0x068: 3500000000000000     |         .quad 53
+0x070: f9ffffffffffffff     |         .quad -7 
+0x078: 0100000000000000     |         .quad 1
+0x080: feffffffffffffff     |         .quad -2
+0x088: 2a00000000000000     |         .quad 42
+0x090: fbffffffffffffff     |         .quad -5
+0x098: 0000000000000000     |         .quad 0  #indicates the end of the list
+                            | #
+0x200:                      |         .pos 0x200
+0x200:                      | stack:

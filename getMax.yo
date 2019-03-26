@@ -1,0 +1,49 @@
+0x000:                      | .pos 0x0
+0x000: 30f6b000000000000000 | irmovq list, %rsi
+0x00a: 30f0b000000000000000 | irmovq list, %rax
+0x014: 30f1b000000000000000 | irmovq list, %rcx
+0x01e: 30f3b000000000000000 | irmovq list, %rbx
+0x028: 50260800000000000000 | mrmovq 8(%rsi), %rdx
+0x032: 10                   | nop
+0x033: 10                   | nop
+0x034: 10                   | nop
+0x035: 6121                 | subq %rdx, %rcx
+0x037: 2630                 | cmovg %rbx, %rax
+0x039: 2220                 | cmovl %rdx, %rax
+                            | 
+0x03b: 50160800000000000000 | mrmovq 8(%rsi), %rcx
+0x045: 50360800000000000000 | mrmovq 8(%rsi), %rbx
+0x04f: 50261000000000000000 | mrmovq 16(%rsi), %rdx
+0x059: 10                   | nop
+0x05a: 10                   | nop
+0x05b: 10                   | nop
+0x05c: 6121                 | subq %rdx, %rcx
+0x05e: 2630                 | cmovg %rbx, %rax
+0x060: 2220                 | cmovl %rdx, %rax
+                            | 
+0x062: 50161000000000000000 | mrmovq 16(%rsi), %rcx
+0x06c: 50361000000000000000 | mrmovq 16(%rsi), %rbx
+0x076: 50261800000000000000 | mrmovq 24(%rsi), %rdx
+0x080: 10                   | nop
+0x081: 10                   | nop
+0x082: 10                   | nop
+0x083: 6121                 | subq %rdx, %rcx
+0x085: 2630                 | cmovg %rbx, %rax
+0x087: 2220                 | cmovl %rdx, %rax
+                            | 
+0x089: 50161800000000000000 | mrmovq 24(%rsi), %rcx
+0x093: 50361800000000000000 | mrmovq 24(%rsi), %rbx
+0x09d: 50262000000000000000 | mrmovq 32(%rsi), %rdx
+0x0a7: 10                   | nop
+0x0a8: 10                   | nop
+0x0a9: 10                   | nop
+0x0aa: 6121                 | subq %rdx, %rcx
+0x0ac: 2630                 | cmovg %rbx, %rax
+0x0ae: 2220                 | cmovl %rdx, %rax
+                            | 
+0x0b0:                      | .align 8
+0x0b0: 0500000000000000     | list: .quad 5
+0x0b8: faffffffffffffff     |       .quad -6
+0x0c0: fbffffffffffffff     |       .quad -5
+0x0c8: 0100000000000000     |       .quad 1
+0x0d0: 0a00000000000000     |       .quad 10
